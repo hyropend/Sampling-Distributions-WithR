@@ -1,0 +1,24 @@
+n <- 50000
+
+x <- 0:100
+y <- rep(0,101)
+tot <- c()
+
+for (i in 1:n){
+  S <- sum(round(runif(100)))
+  y[S] = y[S] + 1
+  tot <- c(tot,S)
+  }
+ 
+
+
+z <- rep(0,101)
+for (i in 1:n){
+  v <- round(runif(20,1,n))
+  S <- sum(tot[v]) / 20
+  z[S] = z[S] + 1
+  tot <- c(tot,S)
+  }
+plot(x[30:70],z[30:70],'p',pch = 16, col = "blue")
+lines(x[30:70],y[30:70],'p',pch = 16, col = "red")
+
